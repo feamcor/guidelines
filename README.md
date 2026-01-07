@@ -1,2 +1,1 @@
-# guidelines
-Guidelines for Coding Agents et al.
+# Guidelines for Coding Agents et al.
