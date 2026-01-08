@@ -1,5 +1,5 @@
 ---
-description: "This rule provides standards for design log files"
+description: "Provides standards for design log files."
 alwaysApply: true
 ---
 ## Design Log Methodology

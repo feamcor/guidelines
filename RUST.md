@@ -1,6 +1,10 @@
+---
+description: "Defines rules and decision criteria for an automated or human coding agent writing production Rust code."
+alwaysApply: true
+---
 # Rust Coding Guidelines
 
-This document defines rules and decision criteria for an automated or human coding agent writing **production Rust code**. It prioritizes correctness, maintainability, and explicitness over convenience or brevity.  
+It prioritizes correctness, maintainability, and explicitness over convenience or brevity.  
 
 ## 1. Core Principles (Non-Negotiable)
 
