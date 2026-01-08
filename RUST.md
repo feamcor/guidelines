@@ -60,9 +60,18 @@ Use a newtype when:
 
 ## 4. Error Handling Strategy
 
+- Does the error communicate what can be done next?
+- Is context captured where the semantic boundary is crossed?
+- Is the data structured and typed (not just strings)?
+- Could a machine act on this error without brittle string parsing?
+- Is the intended audience (caller vs end user) clearly considered?
+- Never use `?` without context: if crossing a module boundary (e.g., Database to Service layer), always use `.map_err()` to translate the error into the current module's domain.
+- Identify retryability: if an error is transient (network timeout), ensure the error type exposes this so the caller doesn't have to string-match logs.
+- Categorize by response: if two different internal errors require the same caller action, they should map to the same `ErrorKind`.
+
 ### 4.1 Error Crates
-- For Binary/Application, use `anyhow`.
-- For Library/Domain, use `thiserror`.
+- For Binary/Application, use `anyhow`. Use it only for top-level application binaries where recovery is no longer an option.
+- For Library/Domain, use `thiserror`. Define explicit, flat enums for errors.
 - For Public API, use typed errors only.
 
 ### 4.2 Defining Errors (Library Code)
